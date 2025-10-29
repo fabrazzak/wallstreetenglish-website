@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import emailjs from 'emailjs-com';
 
 export default function EnglishCoursePriceForm() {
   const [formData, setFormData] = useState({
@@ -23,9 +24,51 @@ export default function EnglishCoursePriceForm() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert("Form submitted!");
+    
+    try {
+      const templateParams = {
+        first_name: formData.firstName,
+        last_name: formData.lastName,
+        email: formData.email,
+        phone: formData.phone,
+        country: formData.country,
+        city: formData.city,
+        contact_method: formData.contactMethod,
+        interest: formData.interest,
+        study_mode: formData.studyMode,
+        consent: formData.consent ? "Yes" : "No",
+        submitted_at: new Date().toLocaleString(),
+      };
+
+      await emailjs.send(
+        'service_88tdbfh',
+        'template_9lff8nu',
+        templateParams,
+        'CC6xz6OnXMhkREFma'
+      );
+
+      alert("Form submitted successfully!");
+      
+      // Reset form
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        country: "",
+        city: "",
+        contactMethod: "",
+        interest: "",
+        studyMode: "",
+        consent: false,
+      });
+      
+    } catch (error) {
+      console.error('Error sending email:', error);
+      alert("Sorry, there was an error submitting your form. Please try again.");
+    }
   };
 
   return (
@@ -246,7 +289,7 @@ export default function EnglishCoursePriceForm() {
           {/* Button */}
           <button
             type="submit"
-            className="bg-[#E63946] hover:bg-[#cc2c3a] text-white font-semibold px-8 py-2 mt-4 rounded-sm"
+            className="bg-[#E63946] hover:bg-[#cc2c3a] text-white font-semibold px-4 py-2 mt-4 rounded-sm"
           >
             Book a call
           </button>
