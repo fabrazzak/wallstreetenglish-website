@@ -135,7 +135,6 @@ export default function Header() {
   ]
 };
 
-
   const toggleDropdown = (title) => {
     setIsDropdownOpen(isDropdownOpen === title ? null : title);
   };
@@ -150,20 +149,19 @@ export default function Header() {
     </svg>
   );
 
-  const ChevronIcon = () => (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-      {...props}
-    >
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-    </svg>
-  );
-
   return (
     <header className="bg-white">
+      {/* Vancouver Announcement Bar */}
+      <div className="bg-[#de1135] py-2">
+        <div className="max-w-[1180px] mx-auto px-4">
+          <div className="text-center">
+            <p className="text-white font-bold text-lg">
+              Opening in Vancouver BC in 2026
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* Top Bar */}
       <div className="bg-[#003359] py-4">
         <div className="max-w-[1180px] mx-auto px-4">
