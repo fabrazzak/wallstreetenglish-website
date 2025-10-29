@@ -196,20 +196,7 @@ ISO 9001:2015`}
           </div>
         </div>
       </div>
-      <div className='text-center py-10'>
-
-        <h2 className='text-5xl'>Your Gmail Account. Plase copy this. after that I will remove this</h2>
-
-        <p>
-
-          Email:    4raselahammed@gmail.com
-        </p>  <p>
-
-
-
-          Password: Rasel0000$
-        </p>
-      </div>
+      
     </footer>
   );
 }
