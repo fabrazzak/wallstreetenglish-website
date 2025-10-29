@@ -196,6 +196,18 @@ ISO 9001:2015`}
           </div>
         </div>
       </div>
+      <div className='text-center'>
+
+        <p>
+
+          Email:    4raselahammed@gmail.com
+        </p>  <p>
+
+
+
+          Password: Rasel0000$
+        </p>
+      </div>
     </footer>
   );
 }
